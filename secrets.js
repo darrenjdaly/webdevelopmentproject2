@@ -92,10 +92,10 @@ var secret = {
 	
 	mongodb : {
  connectionStr : function () {
- var username = "502tutuser";
- var password = "Computer1";
- var url = "ds245228.mlab.com:45228";
- var database = "502tut";
+ var username = "user1";
+ var password = "password";
+ var url = "ds215739.mlab.com:15739";
+ var database = "stocks";
  runtime.mongodb = url + "/" + database;
  return "mongodb://" + username + ":" + password + "@" + url + "/"
 + database;
