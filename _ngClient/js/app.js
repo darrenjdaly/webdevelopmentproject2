@@ -17,15 +17,15 @@ angularnodeApp.config(['$routeProvider', '$httpProvider', '$provide',
 
 		$routeProvider.
 			when('/home', {
-				templateUrl: './partials/home.html',
-				controller: 'HomeCtrl'
+				templateUrl: './partials/portfolio.html',
+				controller: 'portfolioControler'
 			}).
 			when('/portfolio', {
 				templateUrl: './partials/portfolio.html',
 				controller: 'portfolioControler'
 			}).
 		 otherwise({
-		 	redirectTo: '/home'
+		 	redirectTo: '/portfolio'
 		 });
 	}
 ]);
