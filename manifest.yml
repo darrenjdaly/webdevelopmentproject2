@@ -1,0 +1,9 @@
+applications:
+- path: .
+  memory: 256M
+  instances: 1
+  domain: eu-gb.mybluemix.net
+  name: angularnodejs100
+  host: angularnodejs100
+  command: node server.js
+  disk_quota: 256M

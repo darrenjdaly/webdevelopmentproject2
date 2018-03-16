@@ -1,0 +1,86 @@
+<div class="row">
+  <div class="col-md-12">
+    <td><button onclick="window.location.reload()" class="btn btn-success">Reset</button></td>
+    <td><button type="button" class="btn btn-primary" ng-click="saveStocks()">Save</button></td>
+    <br />
+    <br />
+
+    <div class="alert alert-info" ng-if="message" role="alert">{{message}}</div>
+
+    <!--
+	  All the data relating to a single stock is now accessed via stockData, process the held array for individual lines
+	  -->
+    <div class="row">
+      <table class="table table-striped table-condensed">
+        <tr>
+          <th style="width:8%">Symbol</th>
+          <th style="width:10%">Desc</th>
+          <th style="width:8%">Date In</th>
+          <th>Index</th>
+          <th>Qty</th>
+          <!-- <th style="width:15%">Total Quantity</th> -->
+          <th>Cost</th>
+          <th>Purch&euro;</th>
+          <th>Current&euro;</th>
+          <th>Current Value</th>
+          <th>Det gain/loss</th>
+          <th>Cumlt gain/loss</th>
+          <th>% gain/loss</th>
+          <th>Sell costs</th>
+        </tr>
+
+        <!-- inner ng-repeat, each line withing a symbol/stock -->
+        <tbody ng-repeat="(stockSymbol, stockData) in allStocks" style="border-bottom:50px solid white;">
+          <tr ng-repeat="oneRecord in stockData.held">
+            <!--Symbol-->
+            <td style="width:8%">{{stockSymbol}}</td>
+            <!--Desc-->
+            <td style="width:10%">{{oneRecord.Name}}</td>
+            <!--Date In-->
+            <td style="width:8%">{{oneRecord.ts}}</td>
+            <!--Index-->
+            <td>{{oneRecord.ex}}</td>
+            <!--Quantity-->
+            <td style="width:3%">{{oneRecord.number}}</td>
+            <!--Original Cost-->
+            <td>{{oneRecord.cost}}</td>
+            <!--Purchase Price-->
+            <td>{{oneRecord.pps}}</td>
+            <!--Input Current Price-->
+            <td><input ng-model="oneRecord.cpps" type="text" value="{{oneRecord.cpps}}" /></td>
+            <!--Current Value-->
+            <!--<td id ="adjust">{{oneRecord.currentValue}}</td>-->
+            <td>{{oneRecord.number * oneRecord.cpps}}</td>
+            <!--Gain/Loss-->
+            <td>{{oneRecord.Detgainloss}}</td>
+            <!--Cumulative Gain/Loss-->
+            <td></td>
+            <!--Percentage Gain/Loss-->
+            <td>{{oneRecord.percgainloss*100 | number:2}}%</td>
+            <!--Selling Cost-->
+            <td>{{oneRecord.sellingcosts}}</td>
+          </tr>
+
+          <tr>
+            <th></th>
+            <th></th>
+            <th></th>
+            <th></th>
+            <!--Cumulative Gain/Loss-->
+            <th></th>
+            <th></th>
+            <th></th>
+            <th></th>
+            <!--Value Total-->
+            <th></th>
+            <th></th>
+            <!--Cumulative Gain/Loss-->
+            <th></th>
+            <th></th>
+            <th></th>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+  </div>
+</div>

@@ -1,0 +1,26 @@
+{
+  "name": "stockPortfolio",
+  "version": "1.0.0",
+  "description": "Stock Portfolio using angular, node, express",
+  "main": "server.js",
+  "engines": {
+    "node": "^8.9.1"
+  },
+  "scripts": {
+    "start": "node server.js",
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "author": "",
+  "license": "ISC",
+  "dependencies": {
+    "body-parser": "^1.18.2",
+    "cfenv": "^1.0.4",
+    "express": "^4.13.4",
+    "mongodb": "^3.0.3",
+    "morgan": "^1.9.0",
+    "nodemon": "^1.15.1",
+    "npm": "^5.7.1",
+    "q": "^1.5.1",
+    "yarn": "^1.5.0"
+  }
+}

@@ -1,0 +1,291 @@
+"Cash Holding": {
+  "Name": "Cash Holding",
+  "HO": "Dublin",
+
+  "held": [{
+      "Name": "",
+      "ts": "00000000",
+      "ex": "ise",
+      "number": 1,
+      "cost": 100.00,
+      "pps": 1,
+      "cpps": 100,
+      "nowValue": 0,
+      "gainloss": 0,
+      "sellingcosts": 0
+    }
+
+
+  ]
+},
+
+"AIBG_I": {
+  "Name": "Allied Irish Banks Group",
+  "HO": "Dublin",
+
+  "held": [{
+      "Name": "AIB",
+      "ts": "20170101",
+      "ex": "ise",
+      "number": 1000,
+      "cost": 5000.00,
+      "pps": 5,
+      "cpps": 5,
+      "nowValue": 0,
+      "gainloss": 0,
+      "sellingcosts": 0
+    },
+
+    {
+      "Name": "AIB",
+      "ts": "20180101",
+      "ex": "ise",
+      "number": 1000,
+      "cost": 4600.00,
+      "pps": 4.60,
+      "cpps": 4.60,
+      "nowValue": 0,
+      "gainloss": 0,
+      "sellingcosts": 0
+    }
+  ]
+},
+"BOI_I": {
+  "Name": "Bank of Ireland",
+  "HO": "Dublin",
+
+  "held": [{
+      "Name": "Bank of Ireland",
+      "ts": "20120101",
+      "ex": "ise",
+      "number": 1000,
+      "cost": 4000.00,
+      "pps": 4,
+      "cpps": 4,
+      "nowValue": 0,
+      "gainloss": 0,
+      "sellingcosts": 0
+    },
+
+    {
+      "Name": "Bank of Ireland",
+      "ts": "20130101",
+      "ex": "ise",
+      "number": 2000,
+      "cost": 7000.00,
+      "pps": 3.5,
+      "cpps": 4,
+      "nowValue": 0,
+      "gainloss": 0,
+      "sellingcosts": 0
+    }, //
+
+    {
+      "Name": "Bank of Ireland",
+      "ts": "20140101",
+      "ex": "ise",
+      "number": 3000,
+      "cost": 9000.00,
+      "pps": 3,
+      "cpps": 4,
+      "nowValue": 0,
+      "gainloss": 0,
+      "sellingcosts": 0
+    }, //
+
+    {
+      "Name": "Bank of Ireland",
+      "ts": "20150101",
+      "ex": "ise",
+      "number": 1000,
+      "cost": 3500.00,
+      "pps": 3.5,
+      "cpps": 4,
+      "nowValue": 0,
+      "gainloss": 0,
+      "sellingcosts": 0
+    }, //
+
+    {
+      "Name": "Bank of Ireland",
+      "ts": "20160101",
+      "ex": "ise",
+      "number": 2000,
+      "cost": 7000.00,
+      "pps": 3.5,
+      "cpps": 4,
+      "nowValue": 0,
+      "gainloss": 0,
+      "sellingcosts": 0
+    }, //
+
+    {
+      "Name": "Bank of Ireland",
+      "ts": "20170101",
+      "ex": "ise",
+      "number": 3000,
+      "cost": 12000.00,
+      "pps": 4,
+      "cpps": 4,
+      "nowValue": 0,
+      "gainloss": 0,
+      "sellingcosts": 0
+    },
+
+    {
+      "Name": "Bank of Ireland",
+      "ts": "20180101",
+      "ex": "ise",
+      "number": 4000,
+      "cost": 22000.00,
+      "pps": 5.5,
+      "cpps": 4,
+      "nowValue": 0,
+      "gainloss": 0,
+      "sellingcosts": 0
+    }
+  ]
+},
+"CRH": {
+  "Name": "Bank of Ireland",
+  "HO": "Dublin",
+
+  "held": [{
+      "Name": "CRH",
+      "ts": "20140101",
+      "ex": "ise",
+      "number": 3000,
+      "cost": 60000.00,
+      "pps": 20,
+      "cpps": 30,
+      "nowValue": 0,
+      "gainloss": 0,
+      "sellingcosts": 0
+    },
+
+    {
+      "Name": "CRH",
+      "ts": "20150101",
+      "ex": "ise",
+      "number": 1000,
+      "cost": 25000.00,
+      "pps": 25,
+      "cpps": 30,
+      "nowValue": 0,
+      "gainloss": 0,
+      "sellingcosts": 0
+    }, //
+
+    {
+      "Name": "CRH",
+      "ts": "20160101",
+      "ex": "ise",
+      "number": 2000,
+      "cost": 60000.00,
+      "pps": 30,
+      "cpps": 30,
+      "nowValue": 0,
+      "gainloss": 0,
+      "sellingcosts": 0
+    } //
+
+
+  ]
+}
+
+,
+"Tesco": {
+  "Name": "Tesco",
+  "HO": "UK",
+
+  "held": [{
+      "Name": "Tesco",
+      "ts": "20140101",
+      "ex": "ftse",
+      "number": 4000,
+      "cost": 12000.00,
+      "pps": 3,
+      "cpps": 4.5,
+      "nowValue": 0,
+      "gainloss": 0,
+      "sellingcosts": 0
+    },
+
+    {
+      "Name": "Tesco",
+      "ts": "20150101",
+      "ex": "ftse",
+      "number": 8000,
+      "cost": 20000.00,
+      "pps": 2.5,
+      "cpps": 4.5,
+      "nowValue": 0,
+      "gainloss": 0,
+      "sellingcosts": 0
+    }, //
+
+    {
+      "Name": "Tesco",
+      "ts": "20160101",
+      "ex": "ftse",
+      "number": 2000,
+      "cost": 9000.00,
+      "pps": 4.5,
+      "cpps": 4.5,
+      "nowValue": 0,
+      "gainloss": 0,
+      "sellingcosts": 0
+    } //
+
+
+  ]
+}
+
+,
+"Ripple": {
+  "Name": "Ripple",
+  "HO": "NA",
+
+  "held": [{
+      "Name": "Ripple",
+      "ts": "20160101",
+      "ex": "coinra",
+      "number": 3000,
+      "cost": 6000.00,
+      "pps": 2,
+      "cpps": 2,
+      "nowValue": 0,
+      "gainloss": 0,
+      "sellingcosts": 0
+    },
+
+    {
+      "Name": "Ripple",
+      "ts": "20170101",
+      "ex": "coinra",
+      "number": 1000,
+      "cost": 2500.00,
+      "pps": 2.5,
+      "cpps": 2,
+      "nowValue": 0,
+      "gainloss": 0,
+      "sellingcosts": 0
+    }, //
+
+    {
+      "Name": "Ripple",
+      "ts": "20180101",
+      "ex": "coinra",
+      "number": 2000,
+      "cost": 6000.00,
+      "pps": 3,
+      "cpps": 2,
+      "nowValue": 0,
+      "gainloss": 0,
+      "sellingcosts": 0
+    }, //
+
+
+  ]
+}
+}
