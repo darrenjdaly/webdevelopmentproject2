@@ -8,7 +8,7 @@ var Q = require('q'); // promises
 // remember server.js consumes /api/v1/stocks/ part of the path before sending here
 // this router handles from the last / i.e. route refactoring
 
-var dbName = 'stocks';
+var dbName = 'dbuser';
 var collName = 'stocks';
 
 router.get('/', function(req, res) { // return a set of stocks max 100
