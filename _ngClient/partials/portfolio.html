@@ -56,14 +56,14 @@
             <!--Gain/Loss-->
             <td>{{oneRecord.number * oneRecord.cpps-oneRecord.cost-oneRecord.cost/100 - 1.25}}</td>
             <!--Cumulative Gain/Loss-->
-            <td></td>
+            <td>{{aStockSymbol.qtyTotal}}</td>
             <!--Percentage Gain/Loss-->
             <td>{{(oneRecord.number * oneRecord.cpps-oneRecord.cost-oneRecord.cost/100 - 1.25)/oneRecord.cost*100 | number:2}}%</td>
             <!--Selling Cost-->
             <td>{{oneRecord.number * oneRecord.cpps/100 + 1.25}}</td>
           </tr>
 
-          <tr ng-init="oneRecord in stockData.held">
+          <tr >
             <th></th>
             <th></th>
             <th></th>
@@ -75,9 +75,9 @@
             <th></th>
             <!--Value Total-->
             <th></th>
-            <th></th>
+            <th>{{stockSymbols.qtyTotal}}</th>
             <!--Cumulative Gain/Loss-->
-            <th>{{oneRecord.qtyTotal}}</th>
+            <th></th>
             <th></th>
             <th></th>
           </tr>
