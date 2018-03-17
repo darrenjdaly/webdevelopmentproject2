@@ -56,7 +56,7 @@
             <!--Gain/Loss-->
             <td>{{oneRecord.number * oneRecord.cpps-oneRecord.cost-oneRecord.cost/100 - 1.25}}</td>
             <!--Cumulative Gain/Loss-->
-            <td>{{oneRecord.qtyTotal}}</td>
+            <td>{{aStockSymbol.qtyTotal}}</td>
             <!--Percentage Gain/Loss-->
             <td>{{(oneRecord.number * oneRecord.cpps-oneRecord.cost-oneRecord.cost/100 - 1.25)/oneRecord.cost*100 | number:2}}%</td>
             <!--Selling Cost-->
