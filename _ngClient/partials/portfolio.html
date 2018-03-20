@@ -11,6 +11,7 @@
 	  All the data relating to a single stock is now accessed via stockData, process the held array for individual lines
 	  -->
     <div class="row">
+      <span>{{calculateTotalGain(allStocks)}}</span>
       <table class="table table-striped table-condensed">
         <tr>
           <th style="width:8%">Symbol</th>
@@ -49,18 +50,23 @@
             <!--Purchase Price-->
             <td>{{oneRecord.pps}}</td>
             <!--Input Current Price-->
-            <td><input ng-model="oneRecord.cpps" type="text" value="{{oneRecord.cpps}}" /></td>
+            <td>
+              <input ng-if="$index == 0" ng-model="stockData.cpps" type="text" value="{{stockData.cpps}}" />
+              <span ng-if="$index != 0">{{stockData.cpps}}</span>
+            </td>
             <!--Current Value-->
             <!--<td id ="adjust">{{oneRecord.currentValue}}</td>-->
-            <td>{{oneRecord.number * oneRecord.cpps}}</td>
+            <td>{{currentValue(oneRecord,stockData)}}
+            </td>
             <!--Gain/Loss-->
-            <td>{{oneRecord.number * oneRecord.cpps-oneRecord.cost-oneRecord.cost/100 - 1.25}}</td>
+            <td>{{calculateGain(oneRecord,stockData)}}</td>
             <!--Cumulative Gain/Loss-->
             <td>{{aStockSymbol.qtyTotal}}</td>
             <!--Percentage Gain/Loss-->
-            <td>{{(oneRecord.number * oneRecord.cpps-oneRecord.cost-oneRecord.cost/100 - 1.25)/oneRecord.cost*100 | number:2}}%</td>
+            <!--<td>{{(oneRecord.number * oneRecord.cpps-oneRecord.cost-oneRecord.cost/100 - 1.25)/oneRecord.cost*100 | number:2}}%</td> -->
+            <td ng-class="isProfitable(oneRecord,stockData)? 'text-success':'text-danger'"><strong>{{calculateGainPrc(oneRecord,stockData)}}%<strong></td>
             <!--Selling Cost-->
-            <td>{{oneRecord.number * oneRecord.cpps/100 + 1.25}}</td>
+            <td>{{calculateSellCost(oneRecord,stockData)}}</td>
           </tr>
 
           <tr >
@@ -76,9 +82,9 @@
             <!--Value Total-->
             <th></th>
             <th></th>
+            <th></th>
             <!--Cumulative Gain/Loss-->
-            <th></th>
-            <th></th>
+            <th ng-class="calculateGainAll(stockData) > 0? 'text-success':'text-danger' ">{{calculateGainAll(stockData)}}</th>
             <th></th>
           </tr>
         </tbody>

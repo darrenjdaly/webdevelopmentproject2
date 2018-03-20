@@ -2,6 +2,9 @@
 angularnodeApp.controller('portfolioControler', ['$scope', 'portfolioService',
   function($scope, portfolioService) {
 
+    
+
+
     function sumQuantity() //  this may not be the best place in the architecture for this code!
     {
       // for each stock holding, sum the total number of shares remaining
@@ -31,6 +34,8 @@ angularnodeApp.controller('portfolioControler', ['$scope', 'portfolioService',
       });
     }
 
+    
+
     $scope.allStocks = portfolioService.get()
       .then(result => {
         $scope.allStocks = result; // extract the array of stocks
@@ -40,8 +45,87 @@ angularnodeApp.controller('portfolioControler', ['$scope', 'portfolioService',
         $scope.allStocks = {}; // assume no data
       });
 
+    $scope.currentPrices = [];    
+
     $scope.message = '';
     $scope.error = false;
+  
+    // This will calculate gains from all stockSymbols
+    $scope.calculateTotalGain = function(symbols){
+      var totalGain = 0;
+      for (key in symbols){
+        if (symbols[key].cpps!=null)
+        totalGain += parseFloat($scope.calculateGainAll(symbols[key]));
+      }
+      return totalGain.toFixed(2);
+    }
+      
+    $scope.calculateGainAll = function(symbol){
+      var totalGain = 0;
+      for (i = 0; i < symbol.held.length; i++){
+        totalGain = totalGain + parseFloat($scope.calculateGain(symbol.held[i],symbol));
+      }
+      return totalGain.toFixed(2);
+    };
+
+    // These variable should be defined in the application config (init)
+      // May be dynamically set during runtime
+      var sellCostFixedH = 0.01; // 1% margin (High) for cost under 25k (sellCostFixedBracket)
+      var sellCostFixedL = 0.005; // 0.5% margin (Low) for cost over 25k (sellCostFixedBracket)
+      var sellCostFixedBracket = 25000;
+      var sellCostAdditional = 1.25;
+      
+
+
+    $scope.calculateSellCost = function(record,symbol){
+      var cpps = symbol.cpps;
+      
+      if (cpps==null) cpps=0;
+      var costTotal = record.number * cpps;
+      var costHigh = 0;
+      var costLow = 0;
+
+      if (costTotal > sellCostFixedBracket){
+        costLow = costTotal - sellCostFixedBracket;
+        costHigh = sellCostFixedBracket;
+      } else {
+        costHigh = costTotal;
+      }
+
+      var cost = costLow * sellCostFixedL; //Calculating cost for upper-bracket
+      cost += costHigh * sellCostFixedH; // Adding cost for lower-bracket;
+
+      cost += sellCostAdditional; // Adding additional cost (fee)
+      
+      return cost.toFixed(2); // returning fixed float
+    }
+
+    $scope.calculateGain = function(record,symbol) {
+      var cpps = symbol.cpps;
+      if (cpps==null) cpps=0;
+      
+      var gain = record.number * (cpps - record.pps); // calculating profit based on current and purchase prices
+      gain -= $scope.calculateSellCost(record,symbol); // correcting gain by adding selling cost
+      return gain.toFixed(2); //returning fixed float
+    }
+
+    $scope.isProfitable = function(record,symbol){
+      return $scope.calculateGain(record,symbol) > 0;
+    }
+
+    $scope.currentValue = function(record,symbol){
+      var cpps = symbol.cpps;
+      if (cpps==null) cpps=0;
+      var result = cpps*record.number;
+      return result.toFixed(2);
+    }
+    $scope.calculateGainPrc = function(record,symbol) {
+      var percentage = $scope.calculateGain(record,symbol) / (record.number * record.pps);
+      percentage *= 100;
+      return percentage.toFixed(0); //returning float with no decimal
+    }
+
+
     $scope.saveStocks = function() {
       console.log('$scope.allStocks', $scope.allStocks);
       portfolioService.set($scope.allStocks)
