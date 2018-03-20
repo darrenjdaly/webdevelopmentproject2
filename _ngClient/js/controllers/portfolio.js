@@ -60,6 +60,18 @@ angularnodeApp.controller('portfolioControler', ['$scope', 'portfolioService',
       return totalGain.toFixed(2);
     }
       
+	     // This will calculate gains from all stockSymbols
+    $scope.calculateTotalCost = function(symbols){
+      var totalCost = 0;
+      for (key in symbols){
+        if (symbols[key].cpps!=null)
+        totalCost += parseFloat($scope.cost(symbols[key]));
+      }
+      return totalCost.toFixed(2);
+    } 
+	  
+
+	  
     $scope.calculateGainAll = function(symbol){
       var totalGain = 0;
       for (i = 0; i < symbol.held.length; i++){
@@ -72,7 +84,7 @@ angularnodeApp.controller('portfolioControler', ['$scope', 'portfolioService',
       // May be dynamically set during runtime
       var sellCostFixedH = 0.01; // 1% margin (High) for cost under 25k (sellCostFixedBracket)
       var sellCostFixedL = 0.005; // 0.5% margin (Low) for cost over 25k (sellCostFixedBracket)
-      var sellCostFixedBracket = 25000;
+      var sellCostFixedBracket = 25000; // threshold for 1% margin
       var sellCostAdditional = 1.25;
       
 
