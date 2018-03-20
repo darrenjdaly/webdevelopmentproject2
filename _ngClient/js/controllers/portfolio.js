@@ -65,7 +65,7 @@ angularnodeApp.controller('portfolioControler', ['$scope', 'portfolioService',
       var totalCost = 0;
       for (key in symbols){
         if (symbols[key].cpps!=null)
-        totalCost += parseFloat($scope.cost(symbols[key]));
+        totalCost += parseFloat($scope.held.cost(symbols[key]));
       }
       return totalCost.toFixed(2);
     } 
