@@ -60,16 +60,16 @@ angularnodeApp.controller('portfolioControler', ['$scope', 'portfolioService',
       return totalGain.toFixed(2);
     }
       
+	
 	     // This will calculate gains from all stockSymbols
-    $scope.calculateTotalCost = function(symbols){
-      var totalCost = 0;
+    $scope.CalculatetotalSellCost = function(symbols){
+      var totalSellCost = 0;
       for (key in symbols){
         if (symbols[key].cpps!=null)
-        totalCost += parseFloat($scope.held.cost(symbols[key]));
+        totalSellCost += parseFloat($scope.calculateSellCost(symbols[key]));
       }
-      return totalCost.toFixed(2);
-    } 
-	  
+      return totalSellCost.toFixed(2);
+    }
 
 	  
     $scope.calculateGainAll = function(symbol){
