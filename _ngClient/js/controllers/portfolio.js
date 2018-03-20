@@ -102,13 +102,13 @@ angularnodeApp.controller('portfolioControler', ['$scope', 'portfolioService',
       
       return cost.toFixed(2); // returning fixed float
     }
-
+ // had to adjust for null rather than get NAN errors- will do this below where errors are found
     $scope.calculateGain = function(record,symbol) {
       var cpps = symbol.cpps;
       if (cpps==null) cpps=0;
       
       var gain = record.number * (cpps - record.pps); // calculating profit based on current and purchase prices
-      gain -= $scope.calculateSellCost(record,symbol); // correcting gain by adding selling cost
+      gain -= $scope.calculateSellCost(record,symbol); // correcting gain by removing selling cost
       return gain.toFixed(2); //returning fixed float
     }
 
