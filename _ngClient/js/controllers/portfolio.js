@@ -34,7 +34,7 @@ angularnodeApp.controller('portfolioControler', ['$scope', 'portfolioService',
       });
     }
 
-    
+    // below gets data from database DD 20/03
 
     $scope.allStocks = portfolioService.get()
       .then(result => {
@@ -50,7 +50,7 @@ angularnodeApp.controller('portfolioControler', ['$scope', 'portfolioService',
     $scope.message = '';
     $scope.error = false;
   
-    // This will calculate gains from all stockSymbols
+    // This will calculate gains from all stockSymbols level- used for overall table not main one
     $scope.calculateTotalGain = function(symbols){
       var totalGain = 0;
       for (key in symbols){
@@ -61,16 +61,17 @@ angularnodeApp.controller('portfolioControler', ['$scope', 'portfolioService',
     }
       
 	
-	     // This will calculate gains from all stockSymbols
+	     // This will calculate gains from all stockSymbols -- Not working yet
     $scope.CalculatetotalSellCost = function(symbols){
       var totalSellCost = 0;
       for (key in symbols){
-        
+        if (symbols[key].cpps!=null)
         totalSellCost += parseFloat($scope.calculateSellCost(symbols[key]));
       }
       return totalSellCost.toFixed(2);
     }
 
+	// below calculates gain/ loss under symbol when placed under main table on html- should iterate with the main one
 	  
     $scope.calculateGainAll = function(symbol){
       var totalGain = 0;
@@ -88,7 +89,7 @@ angularnodeApp.controller('portfolioControler', ['$scope', 'portfolioService',
       var sellCostAdditional = 1.25;
       
 
-
+// below calcs sell cost by passing the record/symbol through if iteration
     $scope.calculateSellCost = function(record,symbol){
       var cpps = symbol.cpps;
       
