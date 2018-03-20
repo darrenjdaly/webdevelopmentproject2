@@ -11,8 +11,11 @@
 	  All the data relating to a single stock is now accessed via stockData, process the held array for individual lines
 	  -->
     <div class="row">
-      <span>{{calculateTotalGain(allStocks)}}</span>
-      <table class="table table-striped table-condensed">
+      <th>Gross Profit/loss:</th>
+	  <tr>
+	  <span>{{calculateTotalGain(allStocks)}}</span>
+      </tr>
+	  <table class="table table-striped table-condensed">
         <tr>
           <th style="width:8%">Symbol</th>
           <th style="width:10%">Description</th>
