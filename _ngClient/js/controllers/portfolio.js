@@ -70,25 +70,47 @@ angularnodeApp.controller('portfolioControler', ['$scope', 'portfolioService',
 	
 	
 	// calculate purchase price
-	
-	$scope.calculateTotalPurchasePriceAll = function(symbols){
-      var PurchasePrice = 0;
+    $scope.calculateTotalpurchasePrice = function(symbols){
+      var totalpurchaseprice = 0;
       for (key in symbols){
         if (symbols[key].cpps!=null)
-        PurchasePrice += parseFloat($scope.calculateTotalPurchasePriceAll1(symbols[key]));
+        totalpurchaseprice += parseFloat($scope.calculateTotalpurchasePriceAll(symbols[key]));
       }
-      return PurchasePrice.toFixed(2);
+      return totalpurchaseprice.toFixed(2);
     }
       
-    $scope.calculateTotalPurchasePriceAll1 = function(symbol){
-      var PurchasePrice = 0;
+    $scope.calculateTotalpurchasePriceAll = function(symbol){
+      var totalpurchaseprice = 0;
       for (i = 0; i < symbol.held.length; i++){
-        PurchasePrice = symbol.held.pps[i] * symbol.held.cost[i];
+        totalpurchaseprice = totalpurchaseprice + symbol.held[i].number * symbol.held[i].pps;
       }
-      return PurchasePrice.toFixed(2);
+      return totalpurchaseprice.toFixed(2);
     };
 	
+		// Calculate Gross price for overall table
+    $scope.calculateTotalGrossPrice = function(symbols){
+      var totalgrossprice = 0;
+      for (key in symbols){
+        if (symbols[key].cpps!=null)
+        totalgrossprice += parseFloat($scope.calculateGrossPrice(symbols[key]));
+      }
+      return totalgrossprice.toFixed(2);
+    }
+      
+	  
+	 
+    $scope.calculateGrossPrice = function(symbol){
+      var totalGrossPrice = 0;
+      for (i = 0; i < symbol.held.length; i++){
+        totalGrossPrice = totalGrossPrice + symbol.held[i].number * symbol.cpps;
+      }
+      return totalGrossPrice.toFixed(2);
+    };
 	
+
+	
+	// Calculate Total Sell Costs
+  
 
     // These variable should be defined in the application config (init)
       // May be dynamically set during runtime
@@ -138,6 +160,7 @@ angularnodeApp.controller('portfolioControler', ['$scope', 'portfolioService',
     $scope.currentValue = function(record,symbol){
       var cpps = symbol.cpps;
       if (cpps==null) cpps=0;
+
       var result = cpps*record.number;
       return result.toFixed(2);
     }
