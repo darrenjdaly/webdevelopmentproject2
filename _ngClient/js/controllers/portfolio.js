@@ -67,6 +67,28 @@ angularnodeApp.controller('portfolioControler', ['$scope', 'portfolioService',
       }
       return totalGain.toFixed(2);
     };
+	
+	
+	// calculate purchase price
+	
+	$scope.calculateTotalPurchasePriceAll = function(symbols){
+      var PurchasePrice = 0;
+      for (key in symbols){
+        if (symbols[key].cpps!=null)
+        totalGain += parseFloat($scope.calculateTotalPurchasePriceAll1(symbols[key]));
+      }
+      return PurchasePrice.toFixed(2);
+    }
+      
+    $scope.calculateTotalPurchasePriceAll1 = function(symbol){
+      var PurchasePrice = 0;
+      for (i = 0; i < symbol.held.length; i++){
+        PurchasePrice = symbol.pps[i] * symbol.cost[i];
+      }
+      return PurchasePrice.toFixed(2);
+    };
+	
+	
 
     // These variable should be defined in the application config (init)
       // May be dynamically set during runtime
@@ -79,7 +101,7 @@ angularnodeApp.controller('portfolioControler', ['$scope', 'portfolioService',
 
     $scope.calculateSellCost = function(record,symbol){
       var cpps = symbol.cpps;
-      
+      // below added due to NAN errors so decided to assign zero to null will do for all nulls that follow-DD
       if (cpps==null) cpps=0;
       var costTotal = record.number * cpps;
       var costHigh = 0;
