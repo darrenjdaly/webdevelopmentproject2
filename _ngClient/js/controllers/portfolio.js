@@ -75,7 +75,7 @@ angularnodeApp.controller('portfolioControler', ['$scope', 'portfolioService',
       var PurchasePrice = 0;
       for (key in symbols){
         if (symbols[key].cpps!=null)
-        totalGain += parseFloat($scope.calculateTotalPurchasePriceAll1(symbols[key]));
+        PurchasePrice += parseFloat($scope.calculateTotalPurchasePriceAll1(symbols[key]));
       }
       return PurchasePrice.toFixed(2);
     }
