@@ -1,5 +1,6 @@
 <div class="row">
   <div class="col-md-12">
+  <h2 style="text-align:center;">Stock Portfolio- Darren Daly- 20022223- Web development module</h2>
     <td><button onclick="window.location.reload()" class="btn btn-success">Reset</button></td>
     <td><button type="button" class="btn btn-primary" ng-click="saveStocks()">Save</button></td>
     <br />
@@ -11,16 +12,17 @@
 	  All the data relating to a single stock is now accessed via stockData, process the held array for individual lines
 	  -->
     <div class="row">
-      <th>Gross Gain/loss:</th>
-	  <tr>
-	  <td><span>{{calculateTotalGain(allStocks)}}</span></td><br>
-	  <td>Purchase Price total: {{calculateTotalpurchasePrice(allStocks)}}</td><br>
-	  <td>Gross Present Value: {{calculateTotalGrossPrice(allStocks)}}</td>
-	  <br>
-	  <td>Total Sell Costs: {{calculateTotalSellCosts(allStocks)}}</td>
-	  <span></span>
+	  <img src="http://dollarsandsense.sg/wp-content/uploads/2016/11/moves-markets-fundamentals-technicals-market-sentiments-long-term-investing.jpg" alt="Stocks Image" height="300" width="600"> 
+	<table class="table table-hover" style="width:40%" align="right">
+       <tr><td><strong>Summary Stats</strong></td></tr>
+	  <tr><td>Gross Gain/loss:</td> <td ng-class = "calculateTotalGain(allStocks) >0? 'text-success': 'text-danger' "><strong>{{calculateTotalGain(allStocks)}}</strong></td></tr>
+	  <tr><td>Purchase Price total: </td> <td ng-class = "calculateTotalpurchasePrice(allStocks) >0? 'text-success': 'text-danger' "><strong>{{calculateTotalpurchasePrice(allStocks)}}</strong></td></tr>
+	  <tr><td>Gross Present Value: </td> <td ng-class = "calculateTotalGrossPrice(allStocks) >0? 'text-success': 'text-danger' "> <strong>{{calculateTotalGrossPrice(allStocks)}}</strong></td></tr>
+	  <tr><td>Total Sell Costs: </td> <td ng-class = "calculateTotalSellCost(allStocks) >0?  'text-danger' : 'text-success' "> <strong>{{calculateTotalSellCost(allStocks)}}</strong></td></tr>
+	  <tr><td>Total GPV minus Sell Costs: </td> <td ng-class = "calculateGPVAfterSellCost(allStocks) >0? 'text-success': 'text-danger' "><strong>{{calculateGPVAfterSellCost(allStocks)}}</strong></td></tr>
+	 </table>
       </tr>
-	  <table class="table table-striped table-condensed">
+	  <table class="table table-striped table-condensed table-hover">
         <tr>
           <th style="width:8%">Symbol</th>
           <th style="width:10%">Description</th>
@@ -97,6 +99,8 @@
           </tr>
         </tbody>
       </table>
+	  
+	
     </div>
   </div>
 </div>

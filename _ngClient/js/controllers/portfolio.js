@@ -108,9 +108,57 @@ angularnodeApp.controller('portfolioControler', ['$scope', 'portfolioService',
     };
 	
 
-	
-	// Calculate Total Sell Costs
-  
+
+
+
+// This will calculate global Sell Cost for all symbols
+
+$scope.calculateTotalSellCost = function(symbols){
+var totalSellCost = 0;
+for (key in symbols){
+if (symbols[key].cpps!=null)
+
+totalSellCost += parseFloat($scope.calculateSellCostAll(symbols[key]));
+}
+return totalSellCost.toFixed(2);
+
+}
+
+
+// Calculate Total Sell Cost
+
+$scope.calculateSellCostAll = function(symbol){
+var totalSellCost = 0;
+for (i = 0; i < symbol.held.length; i++){
+var holding =
+symbol.held[i];
+totalSellCost += parseFloat($scope.calculateSellCost(holding, symbol));
+
+}
+
+return totalSellCost.toFixed(2);
+
+};
+
+// End test-DD
+
+//Test2
+
+$scope.calculateGPVAfterSellCost = function(symbols){
+var gpv = parseFloat($scope.calculateTotalGrossPrice(symbols));
+var tsc = parseFloat($scope.calculateTotalSellCost(symbols));
+
+return (gpv - tsc).toFixed(2);
+
+}
+// calculating profit based on current and purchase prices
+
+
+//Test2
+
+
+
+
 
     // These variable should be defined in the application config (init)
       // May be dynamically set during runtime
@@ -160,6 +208,8 @@ angularnodeApp.controller('portfolioControler', ['$scope', 'portfolioService',
     $scope.currentValue = function(record,symbol){
       var cpps = symbol.cpps;
       if (cpps==null) cpps=0;
+	  
+	  
 
       var result = cpps*record.number;
       return result.toFixed(2);
