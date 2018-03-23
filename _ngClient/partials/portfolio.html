@@ -86,7 +86,7 @@
             <th></th>
             <!--Cumulative Gain/Loss-->
             <th></th>
-            <th>{{stockData.totalQuantity}}</th>
+            <th>{{stockData.totalQuantity | number}}</th>
             <th></th>
             <th></th>
             <!--Value Total-->
@@ -94,7 +94,7 @@
             <th></th>
             <th></th>
             <!--Cumulative Gain/Loss-->
-            <th ng-class="calculateGainAll(stockData) > 0? 'text-success':'text-danger' ">{{calculateGainAll(stockData)}}</th>
+            <th ng-class="calculateGainAll(stockData) > 0? 'text-success':'text-danger' ">{{calculateGainAll(stockData)| number}}</th>
             <th></th>
           </tr>
         </tbody>
