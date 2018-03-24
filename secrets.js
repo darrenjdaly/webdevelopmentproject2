@@ -89,7 +89,7 @@ var reCapthchaPublicKey = "?????????????????";
 var secret = {
  
     isLiveSystem : function () { return runtime.liveSystem;},
-	
+// below connects to "Stocks" collection on my Mlab.db
 	mongodb : {
  connectionStr : function () {
  var username = "user1";
