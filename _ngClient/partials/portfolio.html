@@ -15,8 +15,8 @@
 	  <img src="http://dollarsandsense.sg/wp-content/uploads/2016/11/moves-markets-fundamentals-technicals-market-sentiments-long-term-investing.jpg" alt="Stocks Image" height="300" width="600"> 
 	<table class="table table-hover" style="width:40%" align="right">
        <tr><td><strong>Summary Stats</strong></td><td></td></tr>
-       <tr><td>User: </td><td>{{appData.firstName}} {{appData.lastName}}</td></tr>
-       <tr><td>Cash: </td><td><input ng-model="appData.cash" type="number" value="{{appData.cash}}" /></td></tr>
+     
+       <tr><td>Cash holding: </td><td><input ng-model="appData.cash" type="number" value="{{appData.cash}}" /></td></tr>
 
 	  <tr><td>Gross Gain/loss:</td> <td ng-class = "calculateTotalGain(allStocks) >0? 'text-success': 'text-danger' "><strong>{{calculateTotalGain(allStocks)| number }}</strong></td></tr>
 	  <tr><td>Purchase Price total: </td> <td ng-class = "calculateTotalpurchasePrice(allStocks) >0? 'text-success': 'text-danger' "><strong>{{calculateTotalpurchasePrice(allStocks) | number }}</strong></td></tr>
@@ -46,10 +46,10 @@
         <tbody style="border-bottom:50px solid white";>
           <tr>
             <td>Cash</td>
-            <td>Cash</td>
+            <td>Cash holding</td>
             <td></td>
             <td></td>
-            <td>{{appData.cash}}</td>
+            <td>{{appData.number}}</td>
             <td></td>
             <td></td>
             <td></td>
